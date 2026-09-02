@@ -21,10 +21,10 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Projects />
-        <Experience />
-        <Skills />
         <About />
+        <Experience />
+        <Projects />
+        <Skills />
         <Contact />
       </main>
       <Footer />

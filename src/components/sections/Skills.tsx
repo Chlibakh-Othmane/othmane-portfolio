@@ -15,7 +15,7 @@ export function Skills() {
     <section id="skills" className="border-b border-border py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6 md:px-10">
         <SectionHeading
-          index="03"
+          index="04"
           kicker="Skills"
           title="Skills & Tools"
           description="Organized by domain rather than one long, undifferentiated list."

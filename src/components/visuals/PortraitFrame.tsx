@@ -1,10 +1,11 @@
 import Image from "next/image";
+import { profile } from "@/content";
 
 export function PortraitFrame() {
   return (
     <div className="relative aspect-[4/5] w-full max-w-xs overflow-hidden rounded-xl border border-border bg-bg-secondary">
       <Image
-        src="/images/othmane.jpg"
+        src={profile.photo}
         alt="Othmane Chlibakh"
         fill
         priority

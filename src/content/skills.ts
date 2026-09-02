@@ -28,13 +28,18 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     id: "data-analysis",
-    label: "Data Analysis",
+    label: "Data Analysis & Visualization",
     items: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Power BI", "Tableau"],
   },
   {
-    id: "backend",
-    label: "Backend / Programming",
-    items: ["Python", "SQL", "Java", "C"],
+    id: "software-engineering",
+    label: "Software Engineering",
+    items: ["Python", "C", "C++", "Java", "JavaScript", "TypeScript", "SQL", "PL/SQL", "PHP", "VB.NET"],
+  },
+  {
+    id: "web-development",
+    label: "Web Development",
+    items: ["React", "TypeScript", "HTML", "CSS", "Django", "Laravel"],
   },
   {
     id: "databases",
@@ -42,8 +47,8 @@ export const skillCategories: SkillCategory[] = [
     items: ["MySQL", "PostgreSQL", "MongoDB", "Oracle"],
   },
   {
-    id: "devops-tools",
-    label: "DevOps / Tools",
-    items: ["Git", "GitHub", "Docker", "Jupyter", "VS Code"],
+    id: "tools-devops",
+    label: "Tools & DevOps",
+    items: ["Git", "GitHub", "Docker", "Jupyter", "VS Code", "Cisco Packet Tracer"],
   },
 ];

@@ -4,9 +4,10 @@ export type NavItem = {
 };
 
 export const navItems: NavItem[] = [
-  { id: "work", label: "Work" },
-  { id: "experience", label: "Experience" },
-  { id: "skills", label: "Skills" },
+  { id: "hero", label: "Home" },
   { id: "about", label: "About" },
+  { id: "experience", label: "Experience" },
+  { id: "work", label: "Projects" },
+  { id: "skills", label: "Skills" },
   { id: "contact", label: "Contact" },
 ];

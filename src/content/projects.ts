@@ -4,17 +4,34 @@ export type ProjectVisualKey =
   | "agent"
   | "datalake"
   | "nlp"
-  | "bi";
+  | "bi"
+  | "webapp"
+  | "database"
+  | "oop"
+  | "ecommerce"
+  | "coworking"
+  | "network";
+
+export const projectCategories = [
+  "AI & DATA",
+  "SOFTWARE ENGINEERING",
+  "WEB DEVELOPMENT",
+  "BIG DATA",
+  "BUSINESS INTELLIGENCE",
+  "NETWORKING",
+] as const;
+
+export type ProjectCategory = (typeof projectCategories)[number];
 
 export type Project = {
   id: string;
-  index: string;
   title: string;
-  category: string;
+  categories: ProjectCategory[];
   description: string;
   tech: string[];
   visual: ProjectVisualKey;
   pipeline?: string[];
+  status?: string;
   // Add a live/repo URL here once available.
   link?: string;
 };
@@ -22,9 +39,8 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: "deepfake-detection",
-    index: "01",
     title: "Deepfake Detection System",
-    category: "AI / Computer Vision",
+    categories: ["AI & DATA"],
     description:
       "Image and video classification system to detect manipulated, falsified content.",
     tech: ["Python", "TensorFlow", "Keras", "Deep Learning", "CNN", "Computer Vision"],
@@ -32,9 +48,8 @@ export const projects: Project[] = [
   },
   {
     id: "churn-prediction",
-    index: "02",
     title: "Customer Churn Prediction",
-    category: "Machine Learning",
+    categories: ["AI & DATA"],
     description:
       "Predictive model to anticipate customer churn, built on a full data preprocessing and modeling pipeline.",
     tech: ["Python", "Pandas", "Scikit-learn", "CatBoost", "XGBoost"],
@@ -42,9 +57,8 @@ export const projects: Project[] = [
   },
   {
     id: "tech-watch-agent",
-    index: "03",
     title: "AI Agent — Automated Tech Watch",
-    category: "AI Agents",
+    categories: ["AI & DATA"],
     description:
       "Intelligent agent that automates technology watch end-to-end, from collection to classification.",
     tech: ["Python", "Django", "SQLite", "HTML", "Tailwind CSS"],
@@ -53,18 +67,16 @@ export const projects: Project[] = [
   },
   {
     id: "weather-data-lake",
-    index: "04",
     title: "Weather Data Lake Architecture",
-    category: "Data Engineering",
+    categories: ["BIG DATA"],
     description: "Data Lake architecture designed for weather data.",
     tech: ["Hadoop", "Spark", "Python"],
     visual: "datalake",
   },
   {
     id: "review-sentiment",
-    index: "05",
     title: "Customer Review Sentiment Analysis",
-    category: "NLP",
+    categories: ["AI & DATA"],
     description:
       "Classification of customer reviews into Positive, Negative and Neutral sentiment.",
     tech: ["Python", "NLP", "Scikit-learn"],
@@ -72,12 +84,63 @@ export const projects: Project[] = [
   },
   {
     id: "bi-dashboards",
-    index: "06",
     title: "Business Intelligence Dashboards",
-    category: "Business Intelligence",
+    categories: ["BUSINESS INTELLIGENCE"],
     description:
       "Decision-making dashboards for sales analysis, commercial performance tracking, KPI visualization and decision support.",
     tech: ["Power BI", "Excel"],
     visual: "bi",
+  },
+  {
+    id: "task-management",
+    title: "Task Management Web Application",
+    categories: ["SOFTWARE ENGINEERING", "WEB DEVELOPMENT"],
+    description:
+      "Design and development of a responsive web interface for managing and tracking tasks.",
+    tech: ["React", "TypeScript", "HTML", "CSS"],
+    visual: "webapp",
+  },
+  {
+    id: "security-personnel-management",
+    title: "Security Personnel Management Application",
+    categories: ["SOFTWARE ENGINEERING", "WEB DEVELOPMENT"],
+    description: "Creation of a database management system for managing security personnel.",
+    tech: ["Laravel", "PHP", "HTML", "CSS"],
+    visual: "database",
+  },
+  {
+    id: "railway-station-management",
+    title: "Railway Station Management Application",
+    categories: ["SOFTWARE ENGINEERING"],
+    description:
+      "Object-oriented implementation of a railway station management application, covering trains, passengers and tickets, with a reservation and tracking system.",
+    tech: ["C++", "Object-Oriented Programming"],
+    visual: "oop",
+  },
+  {
+    id: "ecommerce-website",
+    title: "E-Commerce Website",
+    categories: ["WEB DEVELOPMENT"],
+    description: "Development of an e-commerce website with product and user management.",
+    tech: ["Python", "Django"],
+    visual: "ecommerce",
+  },
+  {
+    id: "coworking-management",
+    title: "Co-Working Space Management Application",
+    categories: ["WEB DEVELOPMENT", "SOFTWARE ENGINEERING"],
+    description:
+      "Management application for a co-working space, covering space reservations, member management and service management.",
+    tech: ["Python", "Django"],
+    visual: "coworking",
+    status: "In Progress",
+  },
+  {
+    id: "network-simulation",
+    title: "Computer Network Simulation",
+    categories: ["NETWORKING"],
+    description: "Configuration and simulation of a computer network.",
+    tech: ["Cisco Packet Tracer"],
+    visual: "network",
   },
 ];

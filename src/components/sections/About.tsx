@@ -19,7 +19,7 @@ export function About() {
   return (
     <section id="about" className="border-b border-border py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6 md:px-10">
-        <SectionHeading index="04" kicker="About" title="About Me" />
+        <SectionHeading index="01" kicker="About" title="About Me" />
 
         <div className="grid gap-12 md:grid-cols-12 md:gap-10">
           <div className="md:col-span-4">

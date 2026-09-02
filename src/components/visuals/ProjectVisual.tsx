@@ -214,6 +214,198 @@ function BiVisual() {
   );
 }
 
+function WebappVisual() {
+  const columns = [
+    { x: 40, items: [1, 1, 0] },
+    { x: 160, items: [1, 0, 1, 0] },
+    { x: 280, items: [1, 1] },
+  ];
+  return (
+    <svg viewBox="0 0 400 300" className="h-full w-full">
+      {/* browser chrome */}
+      <rect x="20" y="20" width="360" height="260" rx="6" fill="#111418" stroke={BORDER} />
+      <line x1="20" y1="50" x2="380" y2="50" stroke={BORDER} strokeWidth="1" />
+      {[0, 1, 2].map((i) => (
+        <circle key={i} cx={38 + i * 14} cy={35} r="3" fill={BORDER} />
+      ))}
+      <rect x="90" y="29" width="180" height="12" rx="3" fill="#0B0D0F" stroke={BORDER} />
+      {/* task board columns */}
+      {columns.map((col, ci) => (
+        <g key={ci}>
+          {col.items.map((on, i) => (
+            <rect
+              key={i}
+              x={col.x}
+              y={70 + i * 40}
+              width="90"
+              height="28"
+              rx="3"
+              fill={on ? "rgba(212,175,95,0.1)" : "#111418"}
+              stroke={on ? GOLD : BORDER}
+              strokeWidth={on ? 1.5 : 1}
+            />
+          ))}
+        </g>
+      ))}
+    </svg>
+  );
+}
+
+function DatabaseVisual() {
+  const rings = [0, 1, 2];
+  return (
+    <svg viewBox="0 0 400 300" className="h-full w-full">
+      {/* cylinder stack */}
+      {rings.map((i) => (
+        <g key={i}>
+          <ellipse cx="130" cy={90 + i * 40} rx="60" ry="16" fill="#111418" stroke={i === 0 ? GOLD : BORDER} />
+          <line x1="70" y1={90 + i * 40} x2="70" y2={90 + i * 40 + 40} stroke={BORDER} />
+          <line x1="190" y1={90 + i * 40} x2="190" y2={90 + i * 40 + 40} stroke={BORDER} />
+        </g>
+      ))}
+      <ellipse cx="130" cy={90 + rings.length * 40} rx="60" ry="16" fill="#111418" stroke={BORDER} />
+
+      {/* access rows */}
+      {[0, 1, 2, 3].map((i) => (
+        <rect
+          key={i}
+          x="240"
+          y={70 + i * 34}
+          width="120"
+          height="20"
+          rx="3"
+          fill={i === 1 ? "rgba(212,175,95,0.12)" : "#111418"}
+          stroke={i === 1 ? GOLD : BORDER}
+        />
+      ))}
+    </svg>
+  );
+}
+
+function OopVisual() {
+  const classes = [
+    { x: 40, y: 40, label: "Train" },
+    { x: 230, y: 30, label: "Ticket" },
+    { x: 230, y: 150, label: "Passenger" },
+  ];
+  return (
+    <svg viewBox="0 0 400 300" className="h-full w-full">
+      <line x1="120" y1="70" x2="230" y2="55" stroke={BORDER} strokeWidth="1.5" />
+      <line x1="120" y1="90" x2="230" y2="175" stroke={BORDER} strokeWidth="1.5" />
+      {classes.map((c, i) => (
+        <g key={c.label}>
+          <rect x={c.x} y={c.y} width="130" height="60" rx="3" fill="#111418" stroke={i === 0 ? GOLD : BORDER} />
+          <line x1={c.x} y1={c.y + 22} x2={c.x + 130} y2={c.y + 22} stroke={BORDER} />
+          <text x={c.x + 10} y={c.y + 15} fill={PRIMARY} fontSize="11" fontFamily="monospace">
+            {c.label}
+          </text>
+          <line x1={c.x + 12} y1={c.y + 35} x2={c.x + 90} y2={c.y + 35} stroke={SECONDARY} strokeWidth="1" />
+          <line x1={c.x + 12} y1={c.y + 47} x2={c.x + 70} y2={c.y + 47} stroke={SECONDARY} strokeWidth="1" />
+        </g>
+      ))}
+      {/* rail track motif */}
+      <line x1="30" y1="250" x2="370" y2="250" stroke={GOLD_LIGHT} strokeWidth="2" opacity="0.6" />
+      {Array.from({ length: 12 }, (_, i) => (
+        <line
+          key={i}
+          x1={45 + i * 28}
+          y1="244"
+          x2={40 + i * 28}
+          y2="258"
+          stroke={BORDER}
+          strokeWidth="3"
+        />
+      ))}
+    </svg>
+  );
+}
+
+function EcommerceVisual() {
+  const products = Array.from({ length: 6 }, (_, i) => i);
+  return (
+    <svg viewBox="0 0 400 300" className="h-full w-full">
+      {products.map((i) => {
+        const col = i % 3;
+        const row = Math.floor(i / 3);
+        const x = 50 + col * 90;
+        const y = 40 + row * 90;
+        return (
+          <g key={i}>
+            <rect
+              x={x}
+              y={y}
+              width="70"
+              height="60"
+              rx="3"
+              fill={i === 1 ? "rgba(212,175,95,0.1)" : "#111418"}
+              stroke={i === 1 ? GOLD : BORDER}
+            />
+            <line x1={x + 10} y1={y + 72} x2={x + 45} y2={y + 72} stroke={SECONDARY} strokeWidth="1.5" />
+          </g>
+        );
+      })}
+      {/* cart */}
+      <g transform="translate(310, 210)">
+        <path d="M0 0 H10 L20 40 H55 L62 12 H15" fill="none" stroke={GOLD_LIGHT} strokeWidth="2.5" />
+        <circle cx="25" cy="52" r="5" fill="none" stroke={GOLD_LIGHT} strokeWidth="2" />
+        <circle cx="50" cy="52" r="5" fill="none" stroke={GOLD_LIGHT} strokeWidth="2" />
+      </g>
+    </svg>
+  );
+}
+
+function CoworkingVisual() {
+  const desks = Array.from({ length: 9 }, (_, i) => i);
+  const booked = new Set([2, 4, 7]);
+  return (
+    <svg viewBox="0 0 400 300" className="h-full w-full">
+      <rect x="30" y="30" width="340" height="240" rx="6" fill="none" stroke={BORDER} />
+      {desks.map((i) => {
+        const col = i % 3;
+        const row = Math.floor(i / 3);
+        const x = 55 + col * 105;
+        const y = 55 + row * 75;
+        const on = booked.has(i);
+        return (
+          <rect
+            key={i}
+            x={x}
+            y={y}
+            width="80"
+            height="50"
+            rx="4"
+            fill={on ? "rgba(212,175,95,0.1)" : "#111418"}
+            stroke={on ? GOLD : BORDER}
+            strokeWidth={on ? 1.5 : 1}
+          />
+        );
+      })}
+    </svg>
+  );
+}
+
+function NetworkVisual() {
+  const center = { x: 200, y: 150 };
+  const nodes = [
+    { x: 80, y: 70 },
+    { x: 320, y: 70 },
+    { x: 80, y: 230 },
+    { x: 320, y: 230 },
+    { x: 200, y: 260 },
+  ];
+  return (
+    <svg viewBox="0 0 400 300" className="h-full w-full">
+      {nodes.map((n, i) => (
+        <line key={i} x1={center.x} y1={center.y} x2={n.x} y2={n.y} stroke={BORDER} strokeWidth="1.5" />
+      ))}
+      <rect x={center.x - 22} y={center.y - 16} width="44" height="32" rx="4" fill={GOLD} />
+      {nodes.map((n, i) => (
+        <circle key={i} cx={n.x} cy={n.y} r="9" fill="#111418" stroke={GOLD_LIGHT} strokeWidth="1.5" />
+      ))}
+    </svg>
+  );
+}
+
 const visuals: Record<ProjectVisualKey, React.ComponentType> = {
   vision: VisionVisual,
   analytics: AnalyticsVisual,
@@ -221,6 +413,12 @@ const visuals: Record<ProjectVisualKey, React.ComponentType> = {
   datalake: DataLakeVisual,
   nlp: NlpVisual,
   bi: BiVisual,
+  webapp: WebappVisual,
+  database: DatabaseVisual,
+  oop: OopVisual,
+  ecommerce: EcommerceVisual,
+  coworking: CoworkingVisual,
+  network: NetworkVisual,
 };
 
 export function ProjectVisual({ visual }: { visual: ProjectVisualKey }) {

@@ -9,5 +9,6 @@ export const navItems: NavItem[] = [
   { id: "experience", label: "Experience" },
   { id: "work", label: "Projects" },
   { id: "skills", label: "Skills" },
+  { id: "certifications", label: "Certifications" },
   { id: "contact", label: "Contact" },
 ];

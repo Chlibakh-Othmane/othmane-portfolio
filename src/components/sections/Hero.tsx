@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowRight, FileText } from "lucide-react";
 import { profile } from "@/content";
 import { NetworkField } from "@/components/visuals/NetworkField";
 import { HeroPortrait } from "@/components/visuals/HeroPortrait";
@@ -79,6 +79,14 @@ export function Hero() {
             </MagneticButton>
             <MagneticButton href="#contact" variant="secondary">
               Let&apos;s Connect
+            </MagneticButton>
+            <MagneticButton
+              href={profile.resumeUrl}
+              variant="secondary"
+              external
+              icon={<FileText size={16} />}
+            >
+              View My CV
             </MagneticButton>
           </motion.div>
         </div>

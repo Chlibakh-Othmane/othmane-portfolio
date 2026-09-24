@@ -10,15 +10,11 @@ export function PortraitFrame() {
         fill
         priority
         sizes="(min-width: 768px) 320px, 60vw"
-        className="object-cover object-[68%_18%] grayscale contrast-125 brightness-90"
+        className="scale-[1.3] object-cover object-[80%_16%] contrast-105"
       />
 
-      {/* duotone: recolors the grayscale photo toward the gold/dark palette */}
-      <div className="pointer-events-none absolute inset-0 bg-gold/25 mix-blend-color" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg via-bg/10 to-bg/30" />
-
-      {/* vignette so the busy background dissolves at the edges */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(11,13,15,0.85)_100%)]" />
+      {/* light grounding fade at the very bottom, no darkening of the subject */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg/25 via-transparent to-transparent" />
 
       {/* viewfinder corners, echoing the computer-vision motif used elsewhere */}
       <div className="pointer-events-none absolute inset-3">

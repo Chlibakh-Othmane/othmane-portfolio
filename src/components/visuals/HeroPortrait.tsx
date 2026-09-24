@@ -1,9 +1,6 @@
 import Image from "next/image";
 import { profile } from "@/content";
 
-const GRAIN =
-  "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>";
-
 export function HeroPortrait() {
   return (
     <div className="relative mx-auto aspect-[3/4] w-full max-w-sm">
@@ -17,19 +14,11 @@ export function HeroPortrait() {
           fill
           priority
           sizes="(min-width: 768px) 420px, 80vw"
-          className="scale-[1.35] object-cover object-[88%_10%] contrast-110 saturate-[0.3] brightness-[0.8]"
+          className="scale-[1.4] object-cover object-[85%_14%] contrast-105"
         />
 
-        {/* cinematic grade: a narrow spotlight vignette keeps the busy backdrop dark while he stays lit */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_32%_60%_at_72%_32%,transparent_20%,rgba(11,13,15,0.65)_60%,rgba(11,13,15,0.95)_100%)]" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg via-bg/10 to-transparent" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-bg/50 mix-blend-overlay" />
-
-        {/* subtle film grain */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.07] mix-blend-overlay"
-          style={{ backgroundImage: `url("${GRAIN}")` }}
-        />
+        {/* light grounding fade at the very bottom, no darkening of the subject */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg/30 via-transparent to-transparent" />
       </div>
 
       {/* technical corner ticks, offset outside the frame */}
